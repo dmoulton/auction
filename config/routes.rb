@@ -1,4 +1,7 @@
 Auction::Application.routes.draw do
+  get "home/index"
+  root to: 'home#index'
+
   resources :bids
 
 
@@ -65,5 +68,8 @@ Auction::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  root :to => "admin#index"
+  get '/items' => 'items#index', format: 'json'
+  get '/items/:id' => 'items#show', format: 'json'
+
+
 end
