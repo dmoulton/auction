@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130507011053) do
     t.string   "address"
     t.string   "phone"
     t.string   "email"
-    t.boolean  "attending"
+    t.string   "attending"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

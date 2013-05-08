@@ -7,7 +7,7 @@ class CreateBids < ActiveRecord::Migration
       t.string :address
       t.string :phone
       t.string :email
-      t.boolean :attending
+      t.string :attending
 
       t.timestamps
     end

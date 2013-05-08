@@ -1,12 +1,10 @@
 Auction::Application.routes.draw do
-  get "home/index"
+
   root to: 'home#index'
 
   resources :bids
 
-
   resources :items
-
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -67,7 +65,7 @@ Auction::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-
+  get "/:item_id" => 'home#index'
   get '/items' => 'items#index', format: 'json'
   get '/items/:id' => 'items#show', format: 'json'
 

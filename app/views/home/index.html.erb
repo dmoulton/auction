@@ -14,40 +14,45 @@
   <div id="auction-view-container" ng-show="selectedItem">
     <h2>{{selectedItem.name}}</h2>
     <p>{{selectedItem.description}}</p>
-    <h2>Current High Bid: {{item.high_bid}}</h2>
-    <h2>Place Your Bid:</h2>
-    <form>
+    <h2>Current High Bid: {{selectedItem.max_bid}}</h2>
+    <p>Number of Bids: {{selectedItem.num_bids}}</p>
+    <h2>Place Your Bid</h2>
+    <form novalidate class="css-form">
       <div class="container-fluid">
-        <div class='row'>
-          <div class="span1">Name:</div>
-          <div class="span2"><input type=text ng-model='bid.name' /></div>
-        </div>
-        <div class='row'>
-          <div class="span1">Address:</div>
-          <div class="span2"><input type=text ng-model='bid.address' /></div>
-        </div>
-        <div class='row'>
-          <div class="span1">Phone:</div>
-          <div class="span2"><input type=text ng-model='bid.phone' /></div>
-        </div>
-        <div class='row'>
-          <div class="span1">Email:</div>
-          <div class="span2"><input type=text ng-model='bid.email' /></div>
-        </div>
-        <div class='row'>
-          <div class="span1">Attending?:</div>
-          <div class="span2"><p>Yes <input type=radio name='attending' value='yes' ng-model="bid.attending" />
-                             No <input type=radio name='attending' value='no' ng-model="bid.attending" /></p></div>
-        </div>
-        <div class='row'></div>
-        <div class='row'>
-          <div class="span1">Your Bid:</div>
-          <div class="span2"><input type=text ng-model='bid.bid' /></div>
-        </div>
-          <p><input type='submit' value='Place Bid' class="btn"></p>
+        <div class="row">
+            <div class="span5">
+                <div class='row'>
+                  <div class="span1">Name:</div>
+                  <div class="span2"><input type=text ng-model='bid.name' required /></div>
+                </div>
+                <div class='row'>
+                  <div class="span1">Address:</div>
+                  <div class="span2"><input type=text ng-model='bid.address' required /></div>
+                </div>
+                <div class='row'>
+                  <div class="span1">Phone:</div>
+                  <div class="span2"><input type=text ng-model='bid.phone' required /></div>
+                </div>
+                <div class='row'>
+                  <div class="span1">Email:</div>
+                  <div class="span2"><input type=email ng-model='bid.email' required /></div>
+                </div>
+                <div class='row'>
+                  <div class="span1">Attending?:</div>
+                  <div class="span2"><p>Yes <input type=radio name='attending' value='yes' ng-model="bid.attending" />
+                                     No <input type=radio name='attending' value='no' ng-model="bid.attending" /></p></div>
+                </div>
+                <div class='row'></div>
+                <div class='row'>
+                  <div class="span1">Your Bid:</div>
+                  <div class="span2"><input type=text ng-model='bid.amount' placeholder="at least ${{selectedItem.max_bid + selectedItem.min_increment}}" required /></div>
+                </div>
+                  <p><input type='submit' value='Place Bid' class="btn btn-primary" ng-click="placeBid()"></p>
+                        <input type='hidden' ng-model='bid.item_id'>
+            </div>
+            <div class="span5"><img ng-src="{{selectedItem.image_url}}" width='500'/></div>
         </div>
       </div>
     </form>
-    <p><img ng-src="{{selectedItem.image_url}}" width='350'/></p>
   </div>
 </div>

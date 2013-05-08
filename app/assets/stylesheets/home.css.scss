@@ -22,7 +22,7 @@ header {
 #auction-list-container {
   background-color: #fff;
   position: absolute;
-  width: 300px;
+  width: 100px;
   top: 37px;
   left: 0;
   bottom: 0;
@@ -54,11 +54,19 @@ header {
   position: absolute;
   border-left: 1px solid #d0d0d0;
   top: 37px;
-  left: 300px;
+  left: 100px;
   right: 0;
   bottom: 0;
   background-color: #fff;
   min-height: 400px;
   padding: 5px 25px;
 
+}
+
+.css-form input.ng-invalid.ng-dirty {
+  background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-dirty {
+  background-color: #78FA89;
 }
