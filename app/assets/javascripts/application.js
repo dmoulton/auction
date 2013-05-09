@@ -15,5 +15,6 @@
 //
 //= require angular
 //= require angular-resource
+//= require localStorageModule
 //= require auctions
 //= require_tree ./angular

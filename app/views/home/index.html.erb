@@ -12,15 +12,28 @@
   </div>
 
   <div id="auction-view-container" ng-show="selectedItem">
-    <h2>{{selectedItem.name}}</h2>
-    <p>{{selectedItem.description}}</p>
-    <h2>Current High Bid: {{selectedItem.max_bid}}</h2>
-    <p>Number of Bids: {{selectedItem.num_bids}}</p>
+    <div class='row'>
+        <div class='span5'>
+            <h2>{{selectedItem.name}}</h2>
+            <p>{{selectedItem.description}}</p>
+        </div>
+        <div class='span5'>
+            <h2>Current High Bid: ${{selectedItem.max_bid}}</h2>
+            <p>Number of Bids: {{selectedItem.num_bids}}</p>
+        </div>
+    </div>
     <h2>Place Your Bid</h2>
-    <form novalidate class="css-form">
+
+    <form name="form" novalidate class="css-form">
       <div class="container-fluid">
         <div class="row">
             <div class="span5">
+              <div class="alert alert-success" ng-show="highBidder">
+                You are currently the high bidder
+              </div>
+              <div class="alert alert-error" ng-show="bidError">
+                {{biddingError}}
+              </div>
                 <div class='row'>
                   <div class="span1">Name:</div>
                   <div class="span2"><input type=text ng-model='bid.name' required /></div>
@@ -31,7 +44,7 @@
                 </div>
                 <div class='row'>
                   <div class="span1">Phone:</div>
-                  <div class="span2"><input type=text ng-model='bid.phone' required /></div>
+                  <div class="span2"><input type=tel ng-model='bid.phone' required /></div>
                 </div>
                 <div class='row'>
                   <div class="span1">Email:</div>
@@ -45,10 +58,14 @@
                 <div class='row'></div>
                 <div class='row'>
                   <div class="span1">Your Bid:</div>
-                  <div class="span2"><input type=text ng-model='bid.amount' placeholder="at least ${{selectedItem.max_bid + selectedItem.min_increment}}" required /></div>
+                  <div class="span2"><input type=number ng-min="{{min_bid}}" ng-model='bid.amount' placeholder="at least ${{min_bid}}" required /></div>
                 </div>
-                  <p><input type='submit' value='Place Bid' class="btn btn-primary" ng-click="placeBid()"></p>
-                        <input type='hidden' ng-model='bid.item_id'>
+              <div class='row'>
+                <div class="span1">Save Info?</div>
+                <div class="span2"><input type=checkbox value="yes" ng-model="saveInfo" /></div>
+              </div>
+                  <p><button class="btn btn-primary" ng-click="placeBid()" ng-disabled="form.$invalid || isUnchanged(bid)">Bid</button></p>
+              <span ng-show="form.amount.$error.float">This is not a valid price</span>
             </div>
             <div class="span5"><img ng-src="{{selectedItem.image_url}}" width='500'/></div>
         </div>
