@@ -11,10 +11,9 @@
         $scope.items.push i
       if item_id
         initial_item = getById($scope.items,item_id)
-        x=1
+        console.log "item_id was passed in"
       else
         initial_item = getById($scope.items,($location.search()).item_id)
-        x=1
 
       $scope.showItem(initial_item) if initial_item
     )
