@@ -3,13 +3,20 @@
   $scope.master= angular.copy($scope.bid)
   Bid = $resource("/bids/:id", {id: "@id"}, {update: {method: "PUT"}})
 
-  loadItems =  ->
+  loadItems = (item_id=null) ->
     $scope.items = []
+    initial_item = null
     $http.get("/items.json").success((data, status, headers, config) ->
       angular.forEach data, (i) ->
         $scope.items.push i
-      initial_item = getById($scope.items,($location.search()).item_id)
-      $scope.showItem(initial_item)  if initial_item
+      if item_id
+        initial_item = getById($scope.items,item_id)
+        x=1
+      else
+        initial_item = getById($scope.items,($location.search()).item_id)
+        x=1
+
+      $scope.showItem(initial_item) if initial_item
     )
 
   loadItems()
@@ -51,7 +58,7 @@
         $scope.bidError = true
 
     $scope.bid.amount = ''
-    loadItems()
+    loadItems($scope.bid.item_id)
 
   getById = (input, id) ->
     i = 0
