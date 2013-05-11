@@ -2,13 +2,14 @@
 <html ng-app="Auctions">
 <head>
   <title>Moulton Barn Fundraising Auctions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
   <%= javascript_include_tag "application" %>
   <script src="//code.angularjs.org/1.0.0rc10/angular-cookies-1.0.0rc10.js"></script>
   <%= csrf_meta_tags %>
 </head>
-<body ng-controller="AuctionsCtrl">
+<body ng-controller="AuctionsCtrl" class='container-fluid'>
 
 <%= yield %>
 </body>

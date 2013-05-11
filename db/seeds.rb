@@ -16,6 +16,6 @@ Item.create( name: 'Quilt',
 
 Item.create( name: 'Briefcase',
              description: "Briefcase by Dan Moulton",
-             image_url: 'http://placehold.it/250&text=Briefcase',
+             image_url: 'http://goo.gl/SRlVJ',
              min_bid: 100.00,
              min_increment: 20.00)
