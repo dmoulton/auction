@@ -9,13 +9,13 @@
 
 
 Item.create( name: 'Quilt',
-             description: "Quilt by Flossie Moulton",
+             description: "Hand made quilt by Flossie Moulton.",
              image_url: 'http://www.themoultonbarn.com/wp-content/uploads/2013/04/photo1.jpg',
              min_bid: 100.00,
-             min_increment: 20.00)
+             min_increment: 10.00)
 
 Item.create( name: 'Briefcase',
-             description: "Briefcase by Dan Moulton",
+             description: "Beautiful briefcase, hand tooled and constructed by Dan Moulton",
              image_url: 'http://goo.gl/SRlVJ',
              min_bid: 100.00,
-             min_increment: 20.00)
+             min_increment: 10.00)

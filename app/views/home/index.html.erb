@@ -2,7 +2,13 @@
   <div class='span12 divider'></div>
 </div>
 <div class='row-fluid hidden-phone'>
-  <div class='span12'><%= image_tag 'moultonbarnlogo.png' %></div>
+  <div class='span12'>
+    <%= image_tag 'moultonbarnlogo.png' %>
+    <div class='pull-right' style='font-size: medium; vertical-align: middle;'>Auctions are currently being tested. Feel free to bid, and report any problems to
+                            dave@themoultons.net,<br /> but be aware that you are not bidding for real! The auctions will
+                            start on July 1st.
+    </div>
+  </div>
 </div>
 <div class='row-fluid'>
   <div class='span12 divider'></div>
@@ -14,6 +20,7 @@
         <h3 ng-click="showItem(item)">{{item.name}}</h3>
       </li>
     </ul>
+    <p><a href="http://themoultonbarn.com">Main Website</a></p>
   </div>
   <div class="span10">
   <div id="auction-view-container" ng-show="selectedItem">
