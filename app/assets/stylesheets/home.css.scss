@@ -3,14 +3,23 @@ body {
   font-family: Helvetica, sans-serif;
   background-color: #ddd;
   margin: 0px;
+  color: #702f04;
 }
 
-header {
-  background-color: #4F4F4F;
+.logo {
+  position: absolute;
+  height: 90px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.divider {
+  background-color: #3c1f09;
   color: #fff;
   position: absolute;
   height: 36px;
-  top: 0;
+  top: 90px;
   left: 0;
   right: 0;
   font-size: 18px;
@@ -23,7 +32,7 @@ header {
   background-color: #fff;
   position: absolute;
   width: 100px;
-  top: 37px;
+  top: 126px;
   left: 0;
   bottom: 0;
   overflow: auto;
@@ -53,13 +62,18 @@ header {
 #auction-view-container {
   position: absolute;
   border-left: 1px solid #d0d0d0;
-  top: 37px;
+  top: 126px;
   left: 100px;
   right: 0;
   bottom: 0;
   background-color: #fff;
   min-height: 400px;
   padding: 5px 25px;
+  color: #636b7d;
+
+  h2 {
+    color: #702f04;
+  }
 
 }
 
