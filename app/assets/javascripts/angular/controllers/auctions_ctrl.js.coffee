@@ -43,10 +43,10 @@
     , ((data, status, headers, config) ->
         $scope.highBidder = true
         $scope.bidError = false
-        #$scope.selectedItem.max_bid = $scope.bid.amount
-        #$scope.selectedItem.num_bids += 1
-        #$scope.bid.amount = ''
-        loadItems($scope.selectedItem.id)
+        $scope.selectedItem.max_bid = $scope.bid.amount
+        $scope.selectedItem.num_bids += 1
+        $scope.bid.amount = ''
+        loadItems()
         saveInfo()
       ), (data, status, headers, config) ->
         $scope.biddingError = data.data.base.join('<br />')
