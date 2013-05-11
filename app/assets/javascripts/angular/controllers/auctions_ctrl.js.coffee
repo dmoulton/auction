@@ -4,14 +4,14 @@
   Bid = $resource("/bids/:id", {id: "@id"}, {update: {method: "PUT"}})
 
   loadItems = (item_id=null) ->
-    $scope.items = []
     initial_item = null
     $http.get("/items.json").success((data, status, headers, config) ->
+      $scope.items = []
       angular.forEach data, (i) ->
         $scope.items.push i
       if item_id
         initial_item = getById($scope.items,item_id)
-        console.log "item_id was passed in"
+        #console.log "item_id was passed in"
       else
         initial_item = getById($scope.items,($location.search()).item_id)
 
@@ -37,6 +37,27 @@
     #$scope.bidError = false
 
   $scope.placeBid = ->
+
+    Bid.save
+      bid: $scope.bid
+    , ((data, status, headers, config) ->
+        $scope.highBidder = true
+        $scope.bidError = false
+        #$scope.selectedItem.max_bid = $scope.bid.amount
+        #$scope.selectedItem.num_bids += 1
+        #$scope.bid.amount = ''
+        loadItems($scope.selectedItem.id)
+        saveInfo()
+      ), (data, status, headers, config) ->
+        $scope.biddingError = data.data.base.join('<br />')
+        $scope.highBidder = false
+        $scope.bidError = true
+        loadItems($scope.selectedItem.id)
+        saveInfo()
+
+    loadItems()
+
+  saveInfo = ->
     if $scope.saveInfo
       localStorageService.add('name',$scope.bid.name)
       localStorageService.add('address',$scope.bid.address)
@@ -45,19 +66,7 @@
       localStorageService.add('attending',$scope.bid.attending)
     else
       localStorageService.clearAll()
-
-    Bid.save
-      bid: $scope.bid
-    , ((data, status, headers, config) ->
-        $scope.highBidder = true
-        $scope.bidError = false
-      ), (data, status, headers, config) ->
-        $scope.biddingError = data.data.base.join('<br />')
-        $scope.highBidder = false
-        $scope.bidError = true
-
     $scope.bid.amount = ''
-    loadItems($scope.bid.item_id)
 
   getById = (input, id) ->
     i = 0
