@@ -25,6 +25,9 @@
     $scope.bid = {}
     $scope.bid.item_id = item.id if item
     $scope.min_bid = $scope.selectedItem.max_bid + $scope.selectedItem.min_increment
+    $scope.images = $scope.selectedItem.image_url.split(',')
+    $scope.firstImage = $scope.images.shift()
+
 
     #load in from local storage. OK if they are empty
     $scope.bid.name = localStorageService.get('name')

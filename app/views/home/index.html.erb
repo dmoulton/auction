@@ -4,7 +4,7 @@
 <div class='row-fluid hidden-phone'>
   <div class='span12'>
     <%= image_tag 'moultonbarnlogo.png' %>
-    <div class='pull-right' style='font-size: medium; vertical-align: middle;'>Auctions are currently being tested. Feel free to bid, and report any problems to
+    <div class='pull-right' style='font-size: medium; vertical-align: middle; background-color: mistyrose;'>Auctions are currently being tested. Feel free to bid, and report any problems to
                             dave@themoultons.net,<br /> but be aware that you are not bidding for real! The auctions will
                             start on July 1st.
     </div>
@@ -25,7 +25,7 @@
   <div class="span10">
   <div id="auction-view-container" ng-show="selectedItem">
     <div class='row-fluid'>
-        <div class='span3'>
+        <div class='span4'>
             <h2>{{selectedItem.name}}</h2>
             <p>{{selectedItem.description}}</p>
         </div>
@@ -39,7 +39,7 @@
     <form name="form" novalidate class="css-form">
       <div class="container-fluid">
         <div class="row-fluid">
-            <div class="span3">
+            <div class="span4">
               <div class="alert alert-success" ng-show="highBidder">
                 You are currently the high bidder
               </div>
@@ -93,10 +93,35 @@
                   <p><button class="btn btn-primary" ng-click="placeBid()" ng-disabled="form.$invalid || isUnchanged(bid)">Bid</button></p>
               <span ng-show="form.amount.$error.float">This is not a valid price</span>
             </div>
-            <div class="span5"><img ng-src="{{selectedItem.image_url}}" width='500'/></div>
+            <div class="span5">
+
+
+              <div id="myCarousel" class="carousel slide">
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img ng-src="{{firstImage}}" />
+                    <div class='carousel-caption' style='color: white'>{{selectedItem.description}}</div>
+                  </div>
+                  <div class="item" ng-repeat='url in images'>
+                    <img ng-src="{{url}}" width='500'/>
+                    <div class='carousel-caption' style='color: white'>{{selectedItem.description}}</div>
+                  </div>
+                </div>
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+              </div>
+
+
+            </div>
         </div>
       </div>
     </form>
   </div>
   </div>
 </div>
+
+<script>
+    $('.carousel').carousel()
+</script>
