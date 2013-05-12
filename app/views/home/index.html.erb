@@ -24,22 +24,14 @@
   </div>
   <div class="span10">
   <div id="auction-view-container" ng-show="selectedItem">
-    <div class='row-fluid'>
-        <div class='span4'>
-            <h2>{{selectedItem.name}}</h2>
-            <p>{{selectedItem.description}}</p>
-        </div>
-        <div class='span5'>
-            <h2>Current High Bid: ${{selectedItem.max_bid}}</h2>
-            <p>Number of Bids: {{selectedItem.num_bids}}</p>
-        </div>
-    </div>
-    <h2>Place Your Bid</h2>
+
+
 
     <form name="form" novalidate class="css-form">
-      <div class="container-fluid">
+
         <div class="row-fluid">
             <div class="span4">
+              <h2>Place Your Bid</h2>
               <div class="alert alert-success" ng-show="highBidder">
                 You are currently the high bidder
               </div>
@@ -94,13 +86,14 @@
               <span ng-show="form.amount.$error.float">This is not a valid price</span>
             </div>
             <div class="span5">
-
+              <h2>Current High Bid: ${{selectedItem.max_bid}}</h2>
+              <p>Number of Bids: {{selectedItem.num_bids}}</p>
 
               <div id="myCarousel" class="carousel slide">
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                   <div class="item active">
-                    <img ng-src="{{firstImage}}" />
+                    <img ng-src="{{firstImage}}" width='500'/>
                     <div class='carousel-caption' style='color: white'>{{selectedItem.description}}</div>
                   </div>
                   <div class="item" ng-repeat='url in images'>
@@ -113,10 +106,9 @@
                 <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
               </div>
 
-
             </div>
         </div>
-      </div>
+
     </form>
   </div>
   </div>
