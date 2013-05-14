@@ -36,11 +36,7 @@
     $scope.bid.email = localStorageService.get('email')
     $scope.bid.attending = localStorageService.get('attending')
 
-    #$scope.highBidder = false
-    #$scope.bidError = false
-
   $scope.placeBid = ->
-
     Bid.save
       bid: $scope.bid
     , ((data, status, headers, config) ->
@@ -60,6 +56,18 @@
 
     loadItems()
 
+  $scope.resetForm = ->
+    $scope.bid.name = ""
+    $scope.bid.address = ""
+    $scope.bid.phone = ""
+    $scope.bid.email = ""
+    $scope.bid.attending = ""
+    $scope.bid.amount = ""
+    localStorageService.clearAll()
+
+  $scope.isUnchanged = (bid) ->
+    return angular.equals(bid, $scope.master)
+
   saveInfo = ->
     if $scope.saveInfo
       localStorageService.add('name',$scope.bid.name)
@@ -78,7 +86,4 @@
       return input[i]  if +input[i].id is +id
       i++
     null
-
-  $scope.isUnchanged = (bid) ->
-    return angular.equals(bid, $scope.master)
 ]

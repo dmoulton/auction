@@ -18,6 +18,8 @@ body {
   background-color: #785033;
   color: #fff;
   height: 36px;
+  text-align: center;
+  padding-top: 5px;
 }
 
 #auction-list-container {
@@ -62,4 +64,8 @@ body {
 
 .css-form input.ng-valid.ng-dirty {
   //background-color: #78FA89;
+}
+
+.footer  {
+  text-align: center;
 }

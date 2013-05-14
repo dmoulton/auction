@@ -9,4 +9,12 @@ class BidsController < ApplicationController
       end
     end
   end
+
+  def index
+    @bids = Bid.all
+    respond_to do |format|
+        format.json
+        format.html
+    end
+  end
 end

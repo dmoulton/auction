@@ -6,6 +6,10 @@ class Bid < ActiveRecord::Base
 
   validate :ismax?
 
+  def item_name
+    item.name
+  end
+
   private
 
   def ismax?
