@@ -68,6 +68,12 @@
   $scope.isUnchanged = (bid) ->
     return angular.equals(bid, $scope.master)
 
+  $scope.$watch (->
+    $scope.bid.phone
+  ), (value) ->
+    if $scope.bid and $scope.bid.phone
+      $scope.bid.phone = $scope.bid.phone.replace(/\D/g,'');
+
   saveInfo = ->
     if $scope.saveInfo
       localStorageService.add('name',$scope.bid.name)

@@ -23,10 +23,8 @@
     </ul>
   </div>
   <div class="span10">
-  <div id='no-auctions' ng-hide="selectedItem">Choose an item at the left</div>
+
   <div id="auction-view-container" ng-show="selectedItem">
-
-
 
     <form name="form" novalidate class="css-form">
 
@@ -84,6 +82,7 @@
                 </div>
               </div>
                   <p>
+                    <p><a href="#myModal" data-toggle="modal">*Read the Terms of Payment before bidding.*</a></p>
                     <button class="btn btn-primary" ng-click="placeBid()" ng-disabled="form.$invalid || isUnchanged(bid)">Bid</button>
                     <button class="btn" ng-click="resetForm()" >Clear</button>
                   </p>
@@ -114,7 +113,7 @@
 
     </form>
     <div>Please note that <strong>shipping is not included in the price</strong>. If you are not present on July 20th, you will need to
-    make arrangements to pick your item up, or pay to have it shipped. Payment in full is required before taking possesion.</div>
+    make arrangements to pick your item up, or pay to have it shipped. Payment in full is required before taking possession.</div>
   </div>
   </div>
 </div>
@@ -125,4 +124,25 @@
     <a href="http://themoultonbarn.com">Return to themoultonbarn.com</a>
   </div>
 </div>
+</div>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Terms of Payment</h3>
+  </div>
+  <div class="modal-body">
+    <p>If you are present at the Centennial celebration on July 20 and you have won an auction, you will have the option
+      of paying for your item by check or Paypal. We ask that if at all possible you pay by Paypal. Payment must occur
+      the day of the celebration so that you can take possession of your item. If you are present at the celebration, but
+      wish to ship your item, you must make your own arrangements to do so, and at your own expense.
+    </p>
+    <p>If you are not present, the only payment method you will be able to use is Paypal. You must pay
+      before July 24, 2013. If you have not paid, the item will be awarded to the next largest bid. Your item will not
+      be shipped until after payment is received. Shipping is not included in the winning bid. You must pay shipping costs,
+      or arrange to have your item picked up.</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
 </div>
