@@ -38,3 +38,5 @@ gem 'unicorn'
 # gem 'debugger'
 
 gem 'activeadmin'
+
+gem 'omniauth-google-oauth2'

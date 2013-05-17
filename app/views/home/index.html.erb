@@ -31,6 +31,7 @@
         <div class="row-fluid">
             <div class="span4">
               <h2>Place Your Bid</h2>
+              <p>* All fields are required to bid</p>
               <div class="alert alert-success" ng-show="highBidder">
                 You are currently the high bidder
               </div>
@@ -39,40 +40,35 @@
               </div>
                 <div class='row-fluid'>
                   <div class="span3">
-                    <label>Name</label>
+                    <label>Name *</label>
                     <input type=text ng-model='bid.name' required />
                   </div>
                 </div>
+
                 <div class='row-fluid'>
                   <div class="span3">
-                    <label>Address</label>
-                    <input type=text ng-model='bid.address' required />
-                  </div>
-                </div>
-                <div class='row-fluid'>
-                  <div class="span3">
-                    <label>Phone</label>
+                    <label>Phone *</label>
                     <input type=tel ng-model='bid.phone' required />
                   </div>
                 </div>
                 <div class='row-fluid'>
                   <div class="span3">
-                    <label>EMail</label>
+                    <label>EMail *</label>
                     <input type=email ng-model='bid.email' required />
                   </div>
                 </div>
                 <div class='row-fluid'>
                   <div class="span9">
-                    <label>Are you attending in July?</label>
+                    <label>Are you attending in July? *</label>
                     Yes <input type=radio name='attending' value='yes' ng-model="bid.attending" />
                     No <input type=radio name='attending' value='no' ng-model="bid.attending" />
                   </div>
                 </div>
                 <hr />
-                <div class='row-fluid well well-small'>
-                  <div class="span6 ">
-                    <label>Your Bid</label>
-                    <input width='span6' type=number ng-min="{{min_bid}}" ng-model='bid.amount' placeholder="at least ${{selectedItem.max_bid + selectedItem.min_increment}}" required />
+                <div class='row-fluid '>
+                  <div class="span8">
+                    <label>Your Bid * ( at least {{min_bid | currency}} )</label>
+                    <input width='span3' type=number ng-min="{{min_bid}}" ng-model='bid.amount' required />
                   </div>
                 </div>
               <div class='row-fluid'>
