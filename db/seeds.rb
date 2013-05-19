@@ -31,7 +31,7 @@ Item.create( name: 'Patterson Print 1',
              min_increment: 10.00)
 
 Item.create( name: 'Patterson Print 2',
-             description: "winter by Jerry Patterson",
+             description: "Winter by Jerry Patterson",
              image_url: '/assets/items/patterson2.jpg',
              min_bid: 100.00,
              min_increment: 10.00)

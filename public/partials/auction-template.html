@@ -5,9 +5,12 @@
     <div class='row-fluid hidden-phone'>
         <div class='span12'>
             <img ng-src='/assets/moultonbarnlogo.png' >
-            <div class='pull-right' style='font-size: medium; vertical-align: middle; background-color: mistyrose;'>Auctions are currently being tested. Feel free to bid, and report any problems to
-                dave@themoultons.net,<br /> but be aware that you are not bidding for real! The auctions will
-                start on July 1st.
+            <div class="alert alert-caution pull-right" style='margin: 5px;'>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4>Attention</h4>
+                Auctions are currently being tested. Feel free to bid, and report any problems to
+                dave@themoultons.net,<br /> but <strong>be aware that you are not placing an actual bid!</strong>
+                The auctions will start on July 1st.
             </div>
         </div>
     </div>
@@ -24,7 +27,12 @@
         </div>
         <div class="span10">
             <div ng-hide="selectedItem">
-                Choose an auction at left.
+                <h4 style='text-align: center;'>Choose an auction!</h4>
+                <div class='row'>
+                    <div class='span3' style='margin-top: 5px;' ng-repeat="item in items">
+                        <img ng-src="{{item.image_url.split(',')[0]}}" ng-click="showItem(item)"/>
+                    </div>
+                </div>
             </div>
 
             <div id="auction-view-container" ng-show="selectedItem">
@@ -35,12 +43,7 @@
                         <div class="span4">
                             <h2>Place Your Bid</h2>
                             <p>* All fields are required to bid</p>
-                            <div class="alert alert-success" ng-show="highBidder">
-                                You are currently the high bidder
-                            </div>
-                            <div class="alert alert-error" ng-show="bidError">
-                                {{biddingError}}
-                            </div>
+
                             <div class='row-fluid'>
                                 <div class="span3">
                                     <label>Name *</label>
@@ -87,10 +90,16 @@
                             </p>
 
                             <span ng-show="form.amount.$error.float">This is not a valid price</span>
+
+                            <div class="alert alert-success" ng-show="highBidder">
+                                You have the high bid!!
+                            </div>
+                            <div class="alert alert-error" ng-show="bidError">
+                                {{biddingError}}
+                            </div>
                         </div>
                         <div class="span8">
-                            <h2>Current High Bid: ${{selectedItem.max_bid}}</h2>
-                            <p>Number of Bids: {{selectedItem.num_bids}}</p>
+                            <h2>Current High Bid: ${{selectedItem.max_bid}} ({{selectedItem.num_bids}} bids)</h2>
 
                             <div id="myCarousel" class="carousel slide">
                                 <!-- Carousel items -->
@@ -112,7 +121,8 @@
 
                 </form>
                 <div>Please note that <strong>shipping is not included in the price</strong>. If you are not present on July 20th, you will need to
-                    make arrangements to pick your item up, or pay to have it shipped. Payment in full is required before taking possession.</div>
+                    make arrangements to pick your item up, or pay to have it shipped. Payment in full is required before taking possession. Please read
+                    the full <a href="#myModal" data-toggle="modal">Terms of Payment</a></div>
             </div>
         </div>
     </div>
@@ -137,7 +147,7 @@
             wish to ship your item, you must make your own arrangements to do so, and at your own expense.
         </p>
         <p>If you are not present, the only payment method you will be able to use is Paypal. You must pay
-            before July 24, 2013. If you have not paid, the item will be awarded to the next largest bid. Your item will not
+            before July 24, 2013. If you have not paid, the item will be awarded to the next highest bid. Your item will not
             be shipped until after payment is received. Shipping is not included in the winning bid. You must pay shipping costs,
             or arrange to have your item picked up.</p>
     </div>
