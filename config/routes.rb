@@ -75,5 +75,6 @@ Auction::Application.routes.draw do
   get '/items' => 'items#index', format: 'json'
   get '/items/:id' => 'items#show', format: 'json'
 
-
+  get '/auctions' => 'home#index'
+  get '/auctions/:id' => 'home#index'
 end

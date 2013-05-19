@@ -1,26 +1,25 @@
-@AuctionsCtrl = @app.controller 'AuctionsCtrl', ["$scope", "$http", "$resource", "$location","localStorageService", ($scope, $http, $resource, $location, localStorageService) ->
+@AuctionsCtrl = @app.controller 'AuctionsCtrl', ["$scope", "$http", "$resource", "$location","$route","$routeParams", "localStorageService", ($scope, $http, $resource, $location, $route, $routeParams, localStorageService) ->
   $scope.bid = {}
   $scope.master= angular.copy($scope.bid)
   Bid = $resource("/bids/:id", {id: "@id"}, {update: {method: "PUT"}})
 
-  loadItems = (item_id=null) ->
+  loadItems = (itemId=null) ->
     initial_item = null
     $http.get("/items.json").success((data, status, headers, config) ->
       $scope.items = []
       angular.forEach data, (i) ->
         $scope.items.push i
-      if item_id
-        initial_item = getById($scope.items,item_id)
-        #console.log "item_id was passed in"
+      if itemId
+        initial_item = getById($scope.items,itemId)
       else
-        initial_item = getById($scope.items,($location.search()).item_id)
-
+        initial_item = getById($scope.items,$routeParams.itemId)
       $scope.showItem(initial_item) if initial_item
     )
 
   loadItems()
 
   $scope.showItem = (item) ->
+    $location.path('/auctions/' + item.id)
     $scope.selectedItem = item
     $scope.bid = {}
     $scope.bid.item_id = item.id if item
@@ -28,8 +27,6 @@
     $scope.images = $scope.selectedItem.image_url.split(',')
     $scope.firstImage = $scope.images.shift()
 
-
-    #load in from local storage. OK if they are empty
     $scope.bid.name = localStorageService.get('name')
     $scope.bid.address = localStorageService.get('address')
     $scope.bid.phone = localStorageService.get('phone')
