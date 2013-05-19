@@ -5,17 +5,17 @@
     <div class='row-fluid hidden-phone'>
         <div class='span12'>
             <img ng-src='/assets/moultonbarnlogo.png' >
-            <div class="alert alert-caution pull-right" style='margin: 5px;'>
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <h4>Attention</h4>
-                Auctions are currently being tested. Feel free to bid, and report any problems to
-                dave@themoultons.net,<br /> but <strong>be aware that you are not placing an actual bid!</strong>
-                The auctions will start on July 1st.
-            </div>
         </div>
     </div>
     <div class='row-fluid'>
         <div class='span12 divider'><span>{{selectedItem.description}}</span></div>
+    </div>
+    <div class="alert alert-error pull-right" style='margin: 5px;'>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Please Read: </strong>
+        Auctions are currently being tested. Please bid, and report any problems to
+        dave@themoultons.net, but <strong>be aware that you are not placing an actual bid!</strong>
+        The auctions will start on July 1st.
     </div>
     <div class='row-fluid'>
         <div id="auction-list-container" class='span2'>
@@ -42,7 +42,7 @@
                     <div class="row-fluid">
                         <div class="span4">
                             <h2>Place Your Bid</h2>
-                            <p>* All fields are required to bid</p>
+                            <p>* All fields are required</p>
 
                             <div class='row-fluid'>
                                 <div class="span3">
@@ -72,9 +72,14 @@
                             </div>
                             <hr />
                             <div class='row-fluid '>
-                                <div class="span8">
+                                <div class="span10">
                                     <label>Your Bid * ( at least {{min_bid | currency}} )</label>
-                                    <input width='span3' type=number ng-min="{{min_bid}}" ng-model='bid.amount' required />
+
+                                    <div class="input-prepend input-append">
+                                        <span class="add-on">$</span>
+                                        <input class="span5" ng-min="{{min_bid}}" ng-model='bid.amount' required style='text-align: right;'>
+                                        <span class="add-on">.00</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class='row-fluid'>
@@ -84,7 +89,7 @@
                                 </div>
                             </div>
                             <p>
-                            <p><a href="#myModal" data-toggle="modal">*Read the Terms of Payment before bidding.*</a></p>
+                            <p><a href="#myModal" data-toggle="modal">*Read the Terms of Payment*</a></p>
                             <button class="btn btn-primary" ng-click="placeBid()" ng-disabled="form.$invalid || isUnchanged(bid)">Bid</button>
                             <button class="btn" ng-click="resetForm()" >Clear</button>
                             </p>
@@ -101,19 +106,9 @@
                         <div class="span8">
                             <h2>Current High Bid: ${{selectedItem.max_bid}} ({{selectedItem.num_bids}} bids)</h2>
 
-                            <div id="myCarousel" class="carousel slide">
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img ng-src="{{firstImage}}"/>
-                                    </div>
-                                    <div class="item" ng-repeat='url in images'>
-                                        <img ng-src="{{url}}"/>
-                                    </div>
-                                </div>
-                                <!-- Carousel nav -->
-                                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                            <div id='images'>
+                                <p><img ng-src='{{currentImage}}' ng-click='nextImage()' height='500' /></p>
+                                <span ng-show='selectedItem.image_url.split(",").length>1'>Click on the image to see more</span>
                             </div>
 
                         </div>

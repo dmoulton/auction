@@ -21,17 +21,24 @@
   $scope.showItem = (item) ->
     $location.path('/auctions/' + item.id)
     $scope.selectedItem = item
+
+    $scope.currentImageId = -1
+    $scope.nextImage()
+
     $scope.bid = {}
     $scope.bid.item_id = item.id if item
     $scope.min_bid = $scope.selectedItem.max_bid + $scope.selectedItem.min_increment
-    $scope.images = $scope.selectedItem.image_url.split(',')
-    $scope.firstImage = $scope.images.shift()
 
     $scope.bid.name = localStorageService.get('name')
     $scope.bid.address = localStorageService.get('address')
     $scope.bid.phone = localStorageService.get('phone')
     $scope.bid.email = localStorageService.get('email')
     $scope.bid.attending = localStorageService.get('attending')
+
+  $scope.nextImage = ->
+    $scope.currentImageId += 1
+    $scope.currentImageId = 0 if $scope.currentImageId >= $scope.selectedItem.image_url.split(',').length
+    $scope.currentImage = $scope.selectedItem.image_url.split(',')[$scope.currentImageId]
 
   $scope.placeBid = ->
     Bid.save
@@ -70,6 +77,12 @@
   ), (value) ->
     if $scope.bid and $scope.bid.phone
       $scope.bid.phone = $scope.bid.phone.replace(/\D/g,'');
+
+  $scope.$watch (->
+    $scope.bid.amount
+  ), (value) ->
+    if $scope.bid and $scope.bid.amount
+      $scope.bid.amount = $scope.bid.amount.replace(/\D/g,'');
 
   saveInfo = ->
     if $scope.saveInfo
