@@ -1,0 +1,10 @@
+<p><%= @old_high.name -%>,</p>
+
+<p>Your bid of <%= number_to_currency(@old_high.amount) %> for the item '<%= @old_high.item.name %>' on the Moulton Barn
+  auction website has been exceeded. The new high bid is <%= number_to_currency(@new_high.amount) %>.  </p>
+
+<p>If you would like to bid again, you can do so <%= link_to 'here', auction_url(@old_high.item) %>
+
+<p>Sincerely,</p>
+
+<p>The TA Moulton Barn Committee</p>

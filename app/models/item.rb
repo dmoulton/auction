@@ -25,6 +25,16 @@ class Item < ActiveRecord::Base
     b
   end
 
+  def top_two
+    begin
+      bids = Bid.order("amount DESC").limit(2)
+    rescue
+      bids = [Bid.new,Bid.new]
+    end
+
+    bids
+  end
+
   def num_bids
     bids.size
   end

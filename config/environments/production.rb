@@ -67,3 +67,5 @@ Auction::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'auction.themoultonbarn.com' }
 end
+
+AUCTION_EMAIL = 'moultondj@gmail.com'

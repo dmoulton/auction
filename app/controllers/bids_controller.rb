@@ -3,6 +3,8 @@ class BidsController < ApplicationController
     bid = Bid.new(params[:bid])
     respond_to do |format|
       if bid.save
+        higher,lower = bid.item.top_two
+        AuctionMailer.outbid(lower,higher).deliver
         format.json { render json: bid, status: :created, location: bid }
       else
         format.json { render json: bid.errors, status: :unprocessable_entity }
