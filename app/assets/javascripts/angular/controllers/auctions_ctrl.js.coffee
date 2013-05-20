@@ -83,6 +83,8 @@
   ), (value) ->
     if $scope.bid and $scope.bid.amount
       $scope.bid.amount = $scope.bid.amount.replace(/\D/g,'');
+      $scope.highBidder = false
+      $scope.bidError = false
 
   saveInfo = ->
     if $scope.saveInfo

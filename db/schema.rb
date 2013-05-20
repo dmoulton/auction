@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130507011053) do
     t.string   "phone"
     t.string   "email"
     t.string   "attending"
+    t.string   "ip_address"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -7,4 +7,10 @@ class AuctionMailer < ActionMailer::Base
 
     mail(:to => lower_bid.email, :subject => "You have been outbid!")
   end
+
+  def highbid(bid)
+    @bid = bid
+
+    mail(:to => bid.email, :subject => "You are the high bidder")
+  end
 end

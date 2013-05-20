@@ -1,0 +1,10 @@
+<p>Dear <%= @bid.name %>,  </p>
+
+<p>Congratulations, you currently have the high bid for the item '<%= @bid.item.name %>' on the Moulton Barn preservation fundraising
+auction site. Return <%= link_to 'here', auction_url(@bid.item.id) %> to check on the status of this auction.</p>
+
+<p>If you did not bid on this auction, please reply to this email immediately and let us know. </p>
+
+<p>Thank you very much for bidding, and good luck!</p>
+
+<p>The TA Moulton Barn Preservation Committee</p>

@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="span8">
-                            <h2>Current High Bid: ${{selectedItem.max_bid}} ({{selectedItem.num_bids}} bids)</h2>
+                            <h3>Current High Bid: <span ng-show='selectedItem.num_bids>0'>{{selectedItem.max_bid | currency}}  ({{selectedItem.num_bids}} <span ng-show='selectedItem.num_bids==1'>bid</span><span ng-show='selectedItem.num_bids>1'>bids</span>)</span><span ng-show='selectedItem.num_bids==0'>Be the first bidder!</span></h3>
 
                             <div id='images'>
                                 <p><img ng-src='{{currentImage}}' ng-click='nextImage()' height='500' /></p>
