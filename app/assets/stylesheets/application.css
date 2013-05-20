@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+html {
+    font-family: "Open Sans",arial,sans-serif
+}
