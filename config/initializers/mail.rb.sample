@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
     :port           => '587',
     :authentication => :plain,
     :user_name      => 'your gmail user here',
-    :password       => 'your gmail password here,
+    :password       => 'your gmail password here',
     :enable_starttls_auto => true
 }
 ActionMailer::Base.delivery_method = :smtp
