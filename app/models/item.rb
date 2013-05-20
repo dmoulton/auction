@@ -18,7 +18,7 @@ class Item < ActiveRecord::Base
   def max_bid
     begin
       b = bids.order("amount DESC").first.amount
-    rescue
+    rescue Exception=>e
       b = min_bid
     end
 
@@ -27,12 +27,13 @@ class Item < ActiveRecord::Base
 
   def top_two
     begin
-      bids = Bid.order("amount DESC").limit(2)
-    rescue
-      bids = [Bid.new,Bid.new]
+      mybids = bids.order("amount DESC").limit(2)
+
+    rescue   Exception=>e
+      mybids = [Bid.new,Bid.new]
     end
 
-    bids
+    mybids
   end
 
   def num_bids
