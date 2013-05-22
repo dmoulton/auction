@@ -1,10 +1,14 @@
 Auction::Application.routes.draw do
 
+  get "google/fetch"
+
   get "sessions/new"
 
   get "sessions/create"
 
   get "sessions/destroy"
+
+  post "google/fetch", format: 'json'
 
   root to: 'home#index'
 

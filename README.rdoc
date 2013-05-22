@@ -5,3 +5,6 @@ To install
 
 copy config/initializers/mail.rb.sample to mail.rb
 edit this file and add your own credentials
+
+copy config/initializers/app.rb.sample to app.rb
+edit this file and add your google app details

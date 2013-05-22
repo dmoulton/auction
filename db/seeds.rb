@@ -38,3 +38,8 @@ Item.create( name: 'Patterson Print 2',
              image_url: '/assets/items/patterson2.jpg',
              min_bid: 280.00,
              min_increment: 20.00)
+
+User.create( name: 'David Moulton',
+             email: 'moultondj@gmail.com')
+
+

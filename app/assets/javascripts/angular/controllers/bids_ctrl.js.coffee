@@ -1,4 +1,5 @@
-@BidsCtrl = @app.controller 'BidsCtrl', ["$scope", "$http", ($scope, $http) ->
+@BidsCtrl = @app.controller 'BidsCtrl', ["$scope", "$http", "$window", ($scope, $http, $window) ->
+  $scope.authenticated = false
 
   loadBids = () ->
     $http.get("/bids.json").success((data, status, headers, config) ->
@@ -7,7 +8,7 @@
         $scope.bids.push b
     )
 
-  loadBids()
+  #loadBids()
 
   loadItems = () ->
     $http.get("/items.json").success((data, status, headers, config) ->
@@ -16,10 +17,18 @@
         $scope.items.push i
     )
 
-  loadItems()
+  #loadItems()
 
   $scope.showItem = (item) ->
     $scope.item_name = item.name
 
   $scope.predicate = "-amount"
+
+  $scope.$watch (->
+    $scope.authenticated
+  ), (value) ->
+    if value == true
+      loadBids()
+      loadItems()
+
 ]

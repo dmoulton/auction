@@ -18,3 +18,4 @@
 //= require localStorageModule
 //= require auctions
 //= require_tree ./angular
+

@@ -1,0 +1,2 @@
+GOOGLE_CLIENT_ID = '<google client id from api console>'
+GOOGLE_APPLICATION_NAME = '<application name from api console>'
