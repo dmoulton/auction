@@ -5,13 +5,13 @@ ActiveRecord::Base.connection.reset_pk_sequence!('items')
 
 Item.create( name: 'Quilt',
              description: "Hand made quilt by Flossie Moulton.",
-             image_url: '/assets/items/quilt1.jpg,/assets/items/quilt2.jpg,/assets/items/quilt3.jpg',
+             image_url: '/assets/items/quilt1.jpg,/assets/items/quilt2.jpg,/assets/items/quilt3.jpg,/assets/items/quilt4.jpg',
              min_bid: 280.00,
              min_increment: 20.00)
 
 Item.create( name: 'Briefcase',
              description: "Beautiful briefcase, hand tooled and built by Dan Moulton",
-             image_url: '/assets/items/briefcase1.jpg,/assets/items/briefcase2.jpg,/assets/items/briefcase3.jpg',
+             image_url: '/assets/items/briefcase1.jpg,/assets/items/briefcase2.jpg,/assets/items/briefcase3.jpg,/assets/items/briefcase4.jpg',
              min_bid: 280.00,
              min_increment: 20.00)
 
@@ -40,6 +40,13 @@ Item.create( name: 'Patterson Print 2',
              min_increment: 20.00)
 
 User.create( name: 'David Moulton',
-             email: 'moultondj@gmail.com')
+             email: 'moultondj@gmail.com',
+             admin: true)
 
+User.create( name: 'Jerry Moulton',
+             email: 'moulton237@gmail.com',
+             admin: true)
 
+User.create( name: 'Dan Moulton',
+             email: 'dan.moulton71@gmail.com',
+             admin: true)

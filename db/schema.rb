@@ -73,8 +73,9 @@ ActiveRecord::Schema.define(:version => 20130522030412) do
     t.string   "name"
     t.string   "email"
     t.datetime "last_login"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "admin",      :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end

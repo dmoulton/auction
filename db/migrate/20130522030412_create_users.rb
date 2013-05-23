@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.datetime :last_login
+      t.boolean :admin, :default=>false
 
       t.timestamps
     end

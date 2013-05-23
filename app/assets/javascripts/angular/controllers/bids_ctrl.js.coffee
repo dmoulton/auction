@@ -1,5 +1,6 @@
-@BidsCtrl = @app.controller 'BidsCtrl', ["$scope", "$http", "$window", ($scope, $http, $window) ->
+@BidsCtrl = @app.controller 'BidsCtrl', ["$scope", "$http", ($scope, $http) ->
   $scope.authenticated = false
+  $scope.admin = false
 
   loadBids = () ->
     $http.get("/bids.json").success((data, status, headers, config) ->

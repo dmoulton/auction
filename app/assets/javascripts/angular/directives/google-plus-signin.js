@@ -6,7 +6,8 @@ app.directive('google', function ($http) {
     return {
         restrict: 'A',
         scope: {
-            authenticated: '=authenticated'
+            authenticated: '=authenticated',
+            admin: '=admin'
         },
         controller: function ($scope, $attrs) {
             // Load the SDK Asynchronously
@@ -26,6 +27,8 @@ app.directive('google', function ($http) {
                         $scope.fetch_status = data.status;
                         if (data.status == 'verified') {
                             $scope.authenticated = true
+                            $scope.admin = (data.admin=="1")
+                            //$scope.admin = true
                         }
                         else {
                             alert('You are not an authorized user')

@@ -20,6 +20,11 @@ class GoogleController < ApplicationController
     end
     r = {}
     r['status'] = status
+    if u && u.admin
+      r['admin'] = "1"
+    else
+      r['admin'] = "0"
+    end
 
     render json: r
   end

@@ -6,7 +6,7 @@
             not post anything to your Google+ time line or access any of your Google contacts. This step is only to identify
             you.</p>
 
-        <div google authenticated='authenticated'>
+        <div google authenticated='authenticated' admin='admin'>
             <a href='#' class='btn btn-danger pull-right' ng-click='revoke()' ng-show='login_status == "connected"'>Try a different user</a>
             <span id="signinButton" ng-hide='login_status == "connected"'>
                 <button class='btn btn-large btn-primary pull-right'>Log in with Google</button>
@@ -34,17 +34,17 @@
                         <td>Item</td>
                         <td>Amount</td>
                         <td>Bidder</td>
-                        <td>Phone</td>
-                        <td>Email</td>
-                        <td>IP Address</td>
+                        <td ng-show='admin'>Phone</td>
+                        <td ng-show='admin'>Email</td>
+                        <td ng-show='admin'>IP Address</td>
                     </tr>
                     <tr ng-repeat="bid in bids | filter:item_name | orderBy:predicate:reverse">
                         <td>{{bid.item_name}}</td>
                         <td>{{bid.amount | currency}}</td>
                         <td>{{bid.name}}</td>
-                        <td>{{bid.phone}}</td>
-                        <td>{{bid.email}}</td>
-                        <td>{{bid.ip_address}}</td>
+                        <td ng-show='admin'>{{bid.phone}}</td>
+                        <td ng-show='admin'>{{bid.email}}</td>
+                        <td ng-show='admin'>{{bid.ip_address}}</td>
                     </tr>
                 </table>
 
