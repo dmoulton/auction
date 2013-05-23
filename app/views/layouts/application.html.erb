@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="Auctions">
-<head>
-  <title>Moulton Barn Fundraising Auctions</title>
-  <%= include_gon %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <head>
+      <title>Moulton Barn Fundraising Auctions</title>
+      <%= include_gon %>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <%= stylesheet_link_tag "application", :media => "all" %>
+      <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
-  <%= javascript_include_tag "application" %>
-  <script src="//code.angularjs.org/1.0.0rc10/angular-cookies-1.0.0rc10.js"></script>
-  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-  <%= csrf_meta_tags %>
-</head>
-<body  class='container-fluid'>
-
-<div ng-view></div>
-</body>
+      <%= javascript_include_tag "application" %>
+      <script src="//code.angularjs.org/1.0.0rc10/angular-cookies-1.0.0rc10.js"></script>
+      <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+      <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <div ng-view></div>
+    </body>
 </html>

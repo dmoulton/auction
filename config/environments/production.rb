@@ -22,6 +22,8 @@ Auction::Application.configure do
 
   config.assets.debug = true
 
+  config.assets.initialize_on_precompile = false
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
