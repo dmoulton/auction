@@ -10,7 +10,7 @@ Item.create( name: 'Quilt',
              min_increment: 20.00)
 
 Item.create( name: 'Briefcase',
-             description: "Beautiful briefcase, hand tooled and built by Dan Moulton",
+             description: "Beautiful briefcase, hand tooled by Dan Moulton",
              image_url: '/assets/items/briefcase1.jpg,/assets/items/briefcase2.jpg,/assets/items/briefcase3.jpg,/assets/items/briefcase4.jpg',
              min_bid: 280.00,
              min_increment: 20.00)
@@ -22,7 +22,7 @@ Item.create( name: 'Clow Print',
              min_increment: 20.00)
 
 Item.create( name: 'Lough Print',
-             description: "Moulton Barn Centennial by Rodney Lough Jr",
+             description: "Moulton Barn Centennial by Rodney Lough",
              image_url: '/assets/items/lough1.jpg',
              min_bid: 900.00,
              min_increment: 100.00)
