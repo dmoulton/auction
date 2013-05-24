@@ -6,7 +6,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('items')
 Item.create( name: 'Quilt',
              description: "Hand made quilt by Flossie Moulton.",
              image_url: '/assets/items/quilt1.jpg,/assets/items/quilt2.jpg,/assets/items/quilt3.jpg,/assets/items/quilt4.jpg',
-             min_bid: 280.00,
+             min_bid: 580.00,
              min_increment: 20.00)
 
 Item.create( name: 'Briefcase',
