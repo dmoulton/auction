@@ -23,7 +23,7 @@
         <div id="auction-list-container" class='span2'>
             <ul>
                 <li ng-repeat="item in items">
-                    <h3 ng-click="showItem(item)">{{item.name}}</h3>
+                    <h3 ng-click="showItem(item)" ng-class="{selected: item_name==item.name}">{{item.name}}</h3>
                 </li>
             </ul>
         </div>

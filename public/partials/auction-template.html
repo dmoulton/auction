@@ -41,7 +41,10 @@
                         <div class="thumbnail">
                             <img ng-src="{{item.image_url.split(',')[0]}}" ng-click="showItem(item)"/>
                             <div class="caption">
-                                <p>{{item.description}}</p>
+                                <p><b>{{item.description}}</b></p>
+                                <p><b>Artist</b> {{item.artist}}</p>
+                                <p><b>High Bid</b> {{item.max_bid | currency}}</p>
+                                <p><b>Bids</b> {{item.num_bids}}</p>
 
                             </div>
                         </div>
@@ -164,7 +167,8 @@
         <p>If you are not present, the only payment method you will be able to use is Paypal. You must pay
             before July 24, 2013. If you have not paid, the item will be awarded to the next highest bid. Your item will not
             be shipped until after payment is received. Shipping is not included in the winning bid. You must pay shipping costs,
-            or arrange to have your item picked up.</p>
+            or arrange to have your item picked up.
+        </p>
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

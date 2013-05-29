@@ -2,6 +2,7 @@ class CreateItems < ActiveRecord::Migration
   def change
     create_table :items do |t|
       t.string :name
+      t.string :artist
       t.text :description
       t.string :image_url
       t.float :min_bid, :default=> 100.00

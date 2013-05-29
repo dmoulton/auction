@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130522030412) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
+    t.string   "artist"
     t.text     "description"
     t.string   "image_url"
     t.float    "min_bid",       :default => 100.0

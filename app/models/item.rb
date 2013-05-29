@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :description, :image_url, :min_bid, :min_increment, :name
+  attr_accessible :description, :image_url, :min_bid, :min_increment, :name, :artist
 
   has_many :bids
 
@@ -7,6 +7,7 @@ class Item < ActiveRecord::Base
     Jbuilder.new do |item|
       item.name name
       item.description description
+      item.artist artist
       item.image_url image_url
       item.min_bid min_bid
       item.min_increment min_increment

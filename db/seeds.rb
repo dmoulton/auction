@@ -4,37 +4,43 @@ ActiveRecord::Base.connection.reset_pk_sequence!('items')
 
 
 Item.create( name: 'Quilt',
-             description: "Hand made quilt by Flossie Moulton.",
-             image_url: '/assets/items/quilt1.jpg,/assets/items/quilt2.jpg,/assets/items/quilt3.jpg,/assets/items/quilt4.jpg',
+             artist: "Flossie Moulton",
+             description: "Hand made quilt",
+             image_url: '/assets/items/quilt5.jpg,/assets/items/quilt6.jpg,/assets/items/quilt7.jpg,/assets/items/quilt8.jpg,,/assets/items/quilt9.jpg,/assets/items/quilt10.jpg',
              min_bid: 580.00,
              min_increment: 20.00)
 
 Item.create( name: 'Briefcase',
-             description: "Beautiful briefcase, hand tooled by Dan Moulton",
-             image_url: '/assets/items/briefcase1.jpg,/assets/items/briefcase2.jpg,/assets/items/briefcase3.jpg,/assets/items/briefcase4.jpg',
+             artist: "Dan Moulton",
+             description: "Beautiful Hand tooled Briefcase",
+             image_url: '/assets/items/briefcase1.jpg,/assets/items/briefcase2.jpg,/assets/items/briefcase3.jpg,/assets/items/briefcase4.jpg,/assets/items/briefcase5.jpg,/assets/items/briefcase6.jpg',
              min_bid: 280.00,
              min_increment: 20.00)
 
 Item.create( name: 'Clow Print',
-             description: "Morning at the Moulton Barn by Jeff Clow",
+             artist: "Jeff Clow",
+             description: "Morning at the Moulton Barn",
              image_url: '/assets/items/clow1.jpg',
              min_bid: 280.00,
              min_increment: 20.00)
 
 Item.create( name: 'Lough Print',
-             description: "Moulton Barn Centennial by Rodney Lough",
+             artist: "Rodney Lough, Jr",
+             description: "Moulton Barn Centennial",
              image_url: '/assets/items/lough1.jpg',
              min_bid: 900.00,
              min_increment: 100.00)
 
 Item.create( name: 'Patterson Print 1',
-             description: "Summer by Jerry Patterson",
+             artist: "Jerry Patterson",
+             description: "Summer",
              image_url: '/assets/items/patterson1.jpg',
              min_bid: 280.00,
              min_increment: 20.00)
 
 Item.create( name: 'Patterson Print 2',
-             description: "Winter by Jerry Patterson",
+             artist: "Jerry Patterson",
+             description: "Winter",
              image_url: '/assets/items/patterson2.jpg',
              min_bid: 280.00,
              min_increment: 20.00)
